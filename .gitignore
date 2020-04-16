@@ -1,0 +1,13 @@
+.idea/
+.DS_Store
+*.swp
+*.swo
+*.old
+*~
+.DS_Store
+
+credentials.sh
+
+/build
+/data/*
+
