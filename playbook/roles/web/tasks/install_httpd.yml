@@ -1,0 +1,26 @@
+---
+# These tasks install http and the php modules.
+
+- name: Install http and php etc with yum
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+   - httpd
+   - php
+   - php-mysqlnd
+   - php-fpm
+   - mod_fcgid
+   - git
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Install http and php etc with apt
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+   - apache2
+   - php
+   - php-mysql
+   - git
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

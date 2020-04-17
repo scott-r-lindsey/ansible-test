@@ -11,12 +11,24 @@ services:
           - centos
           - debian
 
+        volumes:
+          - "${APP_PATH}/playbook:/playbook"
+
     centos:
         container_name: ansible-test-centos
 
         build:
             context: ../
             dockerfile: docker/centos/Dockerfile
+
+        environment:
+            MYSQL_HOST: "mysql"
+            MYSQL_DATABASE: "mydb"
+            MYSQL_USER: "webuser"
+            MYSQL_PASSWORD: "webpassword"
+
+        ports:
+            - "8081:80"
 
 
     debian:
@@ -26,3 +38,22 @@ services:
             context: ../
             dockerfile: docker/debian/Dockerfile
 
+        environment:
+            MYSQL_HOST: "mysql"
+            MYSQL_DATABASE: "mydb"
+            MYSQL_USER: "webuser"
+            MYSQL_PASSWORD: "webpassword"
+
+        ports:
+            - "8082:80"
+
+    mysql:
+        container_name: corona-mysql-container
+        image: mysql:8
+
+        environment:
+            MYSQL_HOST: "mysql"
+            MYSQL_ROOT_PASSWORD: "secure-password"
+            MYSQL_DATABASE: "mydb"
+            MYSQL_USER: "webuser"
+            MYSQL_PASSWORD: "webpassword"

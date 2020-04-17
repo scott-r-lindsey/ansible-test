@@ -1,0 +1,10 @@
+---
+# start httpd, can't use systemctl so manual
+
+- name: Create php-fpm folder
+  shell: mkdir -p /run/php-fpm
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Start php-fpm
+  shell: pkill php-fpm; php-fpm
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'

@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt update
-RUN apt install openssh-server -y
+RUN apt install openssh-server -y python
 COPY docker/debian/run.sh /run.sh
 
 COPY ssh/debian /root/.ssh

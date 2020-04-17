@@ -1,0 +1,10 @@
+---
+# start httpd, can't use systemctl so manual
+
+- name: Start Apache (centos)
+  shell: httpd
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Start Apache (debian)
+  shell: /etc/init.d/apache2 start
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

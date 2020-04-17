@@ -1,0 +1,5 @@
+---
+- include: install_httpd.yml
+- include: copy_code.yml
+- include: start-httpd.yml
+- include: start-php-fpm.yml
