@@ -1,7 +1,7 @@
 # ansible-test
 
 This is a demonstration of a trivial ansible playbook that installs Apache on both CentOS and Debian.
-The servers for this playbook are provided via docker-compose
+The servers for this playbook are provided via docker-compose.
 
 ## How to use:
 
