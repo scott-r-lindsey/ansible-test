@@ -5,6 +5,7 @@
 *.old
 *~
 .DS_Store
+/ssh/*
 
 credentials.sh
 

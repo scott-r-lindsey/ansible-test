@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+
+    ansible:
+        container_name: ansible-test-ansible
+
+        build:
+            context: ../
+            dockerfile: docker/ansible/Dockerfile
+        depends_on:
+          - centos
+          - debian
+
+    centos:
+        container_name: ansible-test-centos
+
+        build:
+            context: ../
+            dockerfile: docker/centos/Dockerfile
+
+
+    debian:
+        container_name: ansible-test-debian
+
+        build:
+            context: ../
+            dockerfile: docker/debian/Dockerfile
+
